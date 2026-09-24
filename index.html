@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Arcade</title>
+    <meta name="description" content="Three small browser games written from scratch: rope physics, a Nokia Snake clone and a colour sort puzzle." />
+    <style>
+      :root {
+        --bg: #12100d;
+        --panel: #1b1814;
+        --line: #2e2823;
+        --fg: #f2ece2;
+        --muted: #a79c8c;
+        --accent: #d9a441;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--fg);
+        font: 16px/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      main { max-width: 68rem; margin: 0 auto; padding: 4.5rem 1rem 6rem; }
+      h1 { font-size: clamp(2rem, 5vw, 2.75rem); margin: 0 0 0.75rem; letter-spacing: -0.02em; }
+      .lede { color: var(--muted); max-width: 42rem; margin: 0 0 3rem; }
+      .grid { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); }
+      a.card {
+        display: block;
+        padding: 1.5rem;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        color: inherit;
+        text-decoration: none;
+        transition: border-color 0.2s, transform 0.2s;
+      }
+      a.card:hover { border-color: var(--accent); transform: translateY(-2px); }
+      .card h2 { margin: 0 0 0.35rem; font-size: 1.125rem; }
+      .card p { margin: 0 0 0.9rem; color: var(--muted); font-size: 0.925rem; }
+      .tech { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.75rem; color: var(--accent); letter-spacing: 0.04em; }
+      footer { margin-top: 3.5rem; color: var(--muted); font-size: 0.875rem; }
+      footer a { color: var(--fg); }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Arcade</h1>
+      <p class="lede">
+        Three small games, each written from scratch without a game engine. Keyboard, mouse and touch all work.
+      </p>
+      <div class="grid">
+        <a class="card" href="./cutzrope/">
+          <h2>Cutzrope</h2>
+          <p>Cut the ropes and drop the coffee bean into the jebena. Verlet rope physics, particles and levels defined as data.</p>
+          <span class="tech">CANVAS 2D</span>
+        </a>
+        <a class="card" href="./snake-xenzia/">
+          <h2>Snake Xenzia</h2>
+          <p>The Nokia classic, with every sprite, bevel and scanline drawn on the canvas rather than loaded as an image.</p>
+          <span class="tech">CANVAS 2D</span>
+        </a>
+        <div class="card" style="opacity: 0.55">
+          <h2>Tejie</h2>
+          <p>Pour colours between bottles until each one holds a single colour. Every level is generated solved, then unsolved backwards. Playable locally; its production build is being fixed.</p>
+          <span class="tech">PIXIJS &middot; LOCAL ONLY</span>
+        </div>
+      </div>
+      <footer>Source on <a href="https://github.com/BinyamMamo/arcade">GitHub</a>.</footer>
+    </main>
+  </body>
+</html>

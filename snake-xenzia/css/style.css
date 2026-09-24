@@ -1,0 +1,110 @@
+:root {
+  --bg: #06140a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  user-select: none;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg);
+  touch-action: none;
+  overscroll-behavior: none;
+}
+
+#stage {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(120% 120% at 50% 0%, #0d2914 0%, #06140a 60%, #030a06 100%);
+}
+
+#game {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+
+/* ---- Rotate prompt (portrait on phones) ---- */
+.overlay-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(120% 120% at 50% 0%, #0d2914 0%, #06140a 70%, #030a06 100%);
+}
+.overlay-screen[hidden] {
+  display: none;
+}
+
+.rotate-art {
+  position: relative;
+  width: 140px;
+  height: 140px;
+}
+.rotate-phone {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 64px;
+  height: 116px;
+  margin: -58px 0 0 -32px;
+  border: 5px solid #8ef07a;
+  border-radius: 14px;
+  box-shadow: 0 0 24px rgba(142, 240, 122, 0.45);
+  animation: rotatePhone 2.4s ease-in-out infinite;
+}
+.rotate-phone::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 7px;
+  width: 18px;
+  height: 4px;
+  margin-left: -9px;
+  border-radius: 3px;
+  background: #8ef07a;
+}
+.rotate-arrow {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  width: 46px;
+  height: 46px;
+  border: 5px solid #f5c542;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  transform: rotate(45deg);
+  opacity: 0.9;
+}
+.rotate-arrow::after {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 16px;
+  border: 9px solid transparent;
+  border-bottom-color: #f5c542;
+  transform: rotate(45deg);
+}
+
+@keyframes rotatePhone {
+  0%, 35% { transform: rotate(0deg); }
+  65%, 100% { transform: rotate(-90deg); }
+}
